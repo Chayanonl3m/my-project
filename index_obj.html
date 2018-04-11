@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>...</title>
+</head>
+<body>
+
+    <div id="div-app">
+      {{firstname[0]}} {{lastname[0]}}
+      <br>
+      {{firstname[1]}} {{lastname[1]}}
+      <button v-on:click="clickName()">Click Add Name</button><br>
+      {{firstname[2]}} {{lastname[2]}}<br>
+      {{fullname}}
+    </div>
+
+</body>
+</html>
+
+<script src="Scripts/vue.js"></script>
+<script>
+
+
+      var vm = new Vue({
+
+          el : "#div-app",
+          data : {
+              title : "Hello",
+              firstname : [],
+              lastname : []
+
+          },
+          methods:{
+            clickName : function()
+            {
+              this.firstname.push("C");
+              this.lastname.push("game");
+            }
+
+          },
+          mounted : function(){
+            this.firstname.push("best");
+            this.lastname.push("banana");
+
+            this.firstname.push("fang");
+            this.lastname.push("pandara");
+
+          },
+          computed :{
+            fullname : function(){
+                return this.firstname[2]+"-"+this.lastname[2];
+            }
+          }
+
+
+      });
+
+</script>

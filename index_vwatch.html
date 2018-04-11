@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>...</title>
+</head>
+<body>
+
+    <div id="div-app">
+        <h1>{{ title }}</h1></hr>
+        <button onclick="changeTitle()">chang</button>
+
+
+    </div>
+
+</body>
+</html>
+
+<script src="Scripts/vue.js"></script>
+<script>
+
+      var data = {
+        title : "Welcome"
+      }
+
+      var vm = new Vue({
+
+          el : "#div-app",
+          data : data,
+          watch : {
+              title : function(){
+                console.log("title change")
+              }
+          }
+      });
+
+      function changeTitle(){
+        data.title ="eieihaha";
+      }
+
+</script>

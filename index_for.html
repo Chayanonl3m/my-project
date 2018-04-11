@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>...</title>
+</head>
+<body>
+
+    <div id="div-app">
+<!--
+        <div v-for="num in customers">
+          ID : {{num.id}}, Name : {{num.name}}
+        </div>
+
+-->
+    <table border="1" width="30%">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Order</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <tr v-for="(cust,index) of customers">
+                  <td>{{index+1}}</td>
+                  <td>{{cust.id}}</td>
+                  <td>{{cust.name}}</td>
+                  <td>
+
+                  <!--------------------------
+                    <table>
+                        <tbody>
+                          <tr v-for="order of cust.orders">
+                            <td>{{order.order_on}}</td>
+                            <td>{{order.total}}</td>
+                        </tbody>
+
+                    <table>
+                  <!-------------------------->
+
+                </td>
+            </tr>
+
+        </tbody>
+        <tfoot></tfood>
+
+    </table>
+
+    </div>
+
+</body>
+</html>
+
+<script src="Scripts/vue.js"></script>
+<script>
+
+
+      var vm = new Vue({
+
+          el : "#div-app",
+          data : {
+              customers : []
+          },
+          mounted : function(){
+            this.customers.push({ id : 1, name : "best", orders :[
+              {order_on :"ORDER-0001",total : 5000},
+              {order_on :"ORDER_0002",total : 1000}
+            ]});
+            this.customers.push({ id : 2, name : "fang"});
+
+          }
+
+
+      });
+
+</script>

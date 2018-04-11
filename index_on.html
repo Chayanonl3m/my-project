@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>...</title>
+</head>
+<body>
+
+    <div id="div-app">
+        <button v-on:click="clickMe()">Click Me</button>
+        <input type="text" v-on:keydown="keybown()" v-model="name">
+
+
+    </div>
+
+</body>
+</html>
+
+<script src="Scripts/vue.js"></script>
+<script>
+
+
+      var vm = new Vue({
+          el : "#div-app",
+          data : {
+            name :""
+
+          },
+          methods :{
+              clickMe : function(){
+                alert("Click");
+              },
+              keybown : function(){
+                console.log("keydown")
+              }
+
+          }
+
+      });
+
+</script>

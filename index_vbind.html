@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>...</title>
+    <style>
+    .status-active{
+      color : blue;
+    }
+    .status-inactive{
+      color : gray;
+    }
+    </style>
+</head>
+<body>
+
+    <div id="div-app">
+        <input type="text" v-bind:value="name" /><br>
+        {{name}}<hr/>
+        <input type="text" v-model="fullname">
+        {{fullname}}
+        <br><hr/>
+        <div v-for="d in documents" v-bind:class={'status-active':d.status=='A','status-inactive':d.status=='B'}>
+          Code : {{d.id}}, title :{{d.title}}, status :{{d.status | Status}}<br>
+          <button v-on:click="d.status='A'">Set Active</botton>
+          <button v-on:click="d.status='B'">Set InActive</botton>
+
+        </div>
+<!-------------------------->
+      <input typr="test" v-bind:value="name" v-bind:readonly="status"/><br>
+<!-------------------------->
+      <input typr="test" v-bind="{ 'value' : name , 'readonly' : status}"/><br>
+<!-------------------------->
+      <button v-on:click="status=!status">read mode<bottin>
+
+
+<!-------------------------->
+
+    </div>
+
+</body>
+</html>
+
+<script src="Scripts/vue.js"></script>
+<script>
+
+
+      var vm = new Vue({
+
+          el : "#div-app",
+          data : {
+              name : "....",
+              status : true,
+              fullname : "chayanon",
+              documents : [
+                { id : "D-001", title : "11111", status :"A"},
+                { id : "D-002", title : "22222", status :"B"},
+                { id : "D-003", title : "33333", status :"A"}
+              ]
+          },
+          filters : {
+            Status : function(data){
+              if(data=="A"){
+                return "Active"
+              }
+              else{
+                return "InActive"
+              }
+            }
+          }
+
+
+      });
+
+</script>

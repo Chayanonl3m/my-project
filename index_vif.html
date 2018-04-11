@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>...</title>
+</head>
+<body>
+
+    <div id="div-app">
+      <h1>Order</h1>
+        <div v-if="sex=='M'">Man</div>
+        <div v-if="sex=='F'">F</div>
+      <button v-on:click="show=true">Click Add Name</button><br>
+            <hr/>
+
+        <!-------------------------->
+        <div v-if=show>
+        <div v-for="order in orders">
+            ID : {{order.id}}
+            status : {{order.status | status_name}}<br>
+            <button>View</button>
+            <div v-if="order.status=='P'">
+            <button>Confrom</button>
+           </div>
+
+            <hr/>
+        </div>
+      </div>
+        <!-------------------------->
+        <!-------------------------->
+    </div>
+
+
+
+</body>
+</html>
+
+<script src="Scripts/vue.js"></script>
+<script>
+
+
+      var vm = new Vue({
+
+          el : "#div-app",
+          data : {
+              title : "Hello",
+              show : false,
+              powerBy : "banaan",
+              sex : "M",
+              orders :[
+                { id : 1, code :"0-001",status :"A"},
+                { id : 2, code :"0-002",status :"P"}
+              ]
+          },
+          filters :{
+            status_name : function(status){
+              var result = "Unknow";
+              switch(status){
+                case 'A' : result="Pass";break;
+                case 'P' : result="Not pass";break;
+              }
+              return result;
+            }
+          }
+
+
+      });
+
+</script>
