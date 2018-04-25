@@ -1,0 +1,14 @@
+Vue.component('TodoItem', {
+  props: {
+    todo: {
+      type: Object,
+      required: true
+    }
+  },
+  template: `
+    <input
+      :value="todo.text"
+      @input="$emit('input', $event.target.value)"
+    >
+  `
+})
